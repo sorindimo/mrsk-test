@@ -59,12 +59,14 @@ and then checks if the value displayed is the expected one.
 
 ## Bugs
 
-* coutdown starts and timer is displayed immediatelly when on normal browser window
 
-* timer display is delayed when on incognito/private browser window (reproducible in Chrome)
+* Timer display is delayed when on incognito/private browser window (reproducible in Chrome). Many times the UI is updated
+with delays.
 
-* input validation missing => for non-handled input we get directly the Time Expired! message
+* Input validation is missing. For the non-handled input we get directly the `Time Expired!` message
 
-* changing context from http to https after clicking GO!
+* Changing context from `http` to `https` after clicking `GO!`
 
-* when reaching the end (1 second), it takes 2-3 seconds until it actually displays the Time Expired! message.
+* When reaching the end (1 second), it takes 2-3 seconds until it actually displays the Time Expired! message.
+
+* Changing options on the modal is not saved when clicking `Apply`
