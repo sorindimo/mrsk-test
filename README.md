@@ -40,16 +40,31 @@ The most interesting part is the countdown and assert code:
 
 ```
 countDownAndAssert(browser, time) {
-    browser
-        .waitForElementVisible(elements.progress, 45000)
+    return browser
+        .waitForElementVisible(elements.progress, browser.globals.waitForConditionTimeout)
         .getText(elements.progress, result => {
-            for (let i = time; i >= 1; i--) {
+            for (let i = time.split(' ')[0]; i >= 1; i--) {
                 browser.pause(1000, () => {
                     browser.getText(elements.progress, result => {
-                        browser.assert.equal(result.value, i);
+                        browser.assert.equal(result.value.split(' ')[0], i);
                     })
                 })
             }
         })
-    },
+},
 ```
+
+The test is counting down in a for loop from the specified start time. It waits 1 second at `browser.pause(1000, ...)`
+and then checks if the value displayed is the expected one.
+
+## Bugs
+
+* coutdown starts and timer is displayed immediatelly when on normal browser window
+
+* timer display is delayed when on incognito/private browser window (reproducible in Chrome)
+
+* input validation missing => for non-handled input we get directly the Time Expired! message
+
+* changing context from http to https after clicking GO!
+
+* when reaching the end (1 second), it takes 2-3 seconds until it actually displays the Time Expired! message.

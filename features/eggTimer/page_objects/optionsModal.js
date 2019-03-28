@@ -42,7 +42,7 @@ const commands = [
         apply(browser) {
             return browser
                 .click(elements.apply)
-                .waitForElementNotVisible(elements.apply, 10000);
+                .waitForElementNotVisible(elements.apply, browser.globals.waitForConditionTimeout);
         }
     }
 ];
