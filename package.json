@@ -1,0 +1,25 @@
+{
+  "name": "@mrsk/test",
+  "version": "0.0.0",
+  "description": "Solution using NightwatchJS & CucumberJS to test the e.ggtimer UI.",
+  "author": "Sorin Dimofte",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorindimo/mrsk-test"
+  },
+  "scripts": {
+    "features": "nightwatch",
+    "tests": "npm run features -- --group eggTimer -e production -b chrome",
+    "tests-parallel": "npm run features -- --group eggTimer -e production -b chrome --parallel 3"
+  },
+  "devDependencies": {
+    "yargs": "^6.3.0",
+    "path": "0.12.7",
+    "chromedriver": "2.45.0",
+    "cucumber": "4.2.1",
+    "cucumber-pretty": "1.4.1",
+    "nightwatch": "0.9.21",
+    "nightwatch-cucumber": "9.1.2"
+  }
+}

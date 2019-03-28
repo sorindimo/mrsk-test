@@ -1,0 +1,8 @@
+- coutdown starts and timer is displayed immediatelly when on normal browser window
+- timer display is delayed when on incognito/private browser window (reproducible in Chrome)
+
+- input validation missing => for non-handled input we get directly the Time Expired! message 
+
+- changing context from http to https after clicking GO!
+
+- when reaching the end (1 second), it takes 2-3 seconds until it actually displays the Time Expired! message.
